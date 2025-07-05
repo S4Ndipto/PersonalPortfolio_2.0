@@ -23,9 +23,15 @@ const About: React.FC = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
+          whileHover={{
+            y: -5,
+            transition: { type: 'spring', stiffness: 200, damping: 12 }
+          }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
+          className="bg-background-lighter border border-border rounded-xl p-6 shadow-lg hover:shadow-[0_0_18px_#a855f7] transition-shadow duration-300"
         >
+
           <div className="bg-background-lighter border border-border rounded-xl p-6 shadow-lg">
             <div className="w-24 h-24 rounded-full bg-accent/20 flex items-center justify-center mb-6">
               <User size={40} className="text-accent" />
@@ -83,9 +89,13 @@ const About: React.FC = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          whileHover={{
+            y: -5,
+            transition: { type: 'spring', stiffness: 200, damping: 12 }
+          }}
+          transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="flex flex-col space-y-6"
+          className="flex flex-col space-y-6 bg-background-lighter border border-border rounded-xl p-6 shadow-lg hover:shadow-[0_0_18px_#a855f7] transition-shadow duration-300"
         >
           <div className="bg-background-lighter border border-border rounded-xl p-6 shadow-lg">
             <div className="flex items-center mb-4">
@@ -171,12 +181,16 @@ const About: React.FC = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="bg-background-lighter border border-border rounded-xl p-6 shadow-lg"
-          >
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          whileHover={{
+            y: -5,
+            transition: { type: 'spring', stiffness: 200, damping: 12 }
+          }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="bg-background-lighter border border-border rounded-xl p-6 shadow-lg hover:shadow-[0_0_18px_#a855f7] transition-shadow duration-300"
+        >
             <div className="flex items-center mb-6">
               <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mr-4">
                 <Code size={24} className="text-accent" />
@@ -192,12 +206,16 @@ const About: React.FC = () => {
           </motion.div>
           
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="bg-background-lighter border border-border rounded-xl p-6 shadow-lg"
-          >
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          whileHover={{
+            y: -5,
+            transition: { type: 'spring', stiffness: 200, damping: 12 }
+          }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="bg-background-lighter border border-border rounded-xl p-6 shadow-lg hover:shadow-[0_0_18px_#a855f7] transition-shadow duration-300"
+        >
             <div className="flex items-center mb-6">
               <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mr-4">
                 <Database size={24} className="text-accent" />
@@ -213,12 +231,16 @@ const About: React.FC = () => {
           </motion.div>
           
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="bg-background-lighter border border-border rounded-xl p-6 shadow-lg"
-          >
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          whileHover={{
+            y: -5,
+            transition: { type: 'spring', stiffness: 200, damping: 12 }
+          }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="bg-background-lighter border border-border rounded-xl p-6 shadow-lg hover:shadow-[0_0_18px_#a855f7] transition-shadow duration-300"
+        >
             <div className="flex items-center mb-6">
               <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mr-4">
                 <BarChart2 size={24} className="text-accent" />
@@ -234,12 +256,16 @@ const About: React.FC = () => {
           </motion.div>
           
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="bg-background-lighter border border-border rounded-xl p-6 shadow-lg"
-          >
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          whileHover={{
+            y: -5,
+            transition: { type: 'spring', stiffness: 200, damping: 12 }
+          }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="bg-background-lighter border border-border rounded-xl p-6 shadow-lg hover:shadow-[0_0_18px_#a855f7] transition-shadow duration-300"
+        >
             <div className="flex items-center mb-6">
               <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mr-4">
                 <User size={24} className="text-accent" />

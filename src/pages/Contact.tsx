@@ -64,7 +64,7 @@ const Contact: React.FC = () => {
             viewport={{ once: true }}
             className="text-text-muted mb-8"
           >
-            I'm currently looking for new opportunities in data analysis and related fields. Whether you have a question, a project idea, or just want to say hello, feel free to reach out!
+             Whether you have a question, a project idea, or just want to say hello, feel free to reach out!
           </motion.p>
           
           <div className="space-y-6 mb-8">

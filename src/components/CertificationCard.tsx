@@ -1,67 +1,34 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { Award, Calendar, ExternalLink } from 'lucide-react';
 
-interface CertificationCardProps {
-  title: string;
-  organization: string;
-  date: string;
-  description?: string[];
-  url?: string;
-  index: number;
-}
-
-const CertificationCard: React.FC<CertificationCardProps> = ({
-  title,
-  organization,
-  date,
-  description,
-  url,
-  index,
-}) => {
+const CertificationCard = ({ title, organization, date, description, url, index }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
+      whileHover={{
+        y: -5,
+        transition: { type: 'spring', stiffness: 200, damping: 12 }
+      }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       viewport={{ once: true }}
-      className="bg-background-lighter border border-border rounded-xl p-6 shadow-lg hover:shadow-accent/5 transition-all duration-300"
+      className="bg-background-lighter border border-border rounded-xl p-6 shadow-lg hover:shadow-[0_0_18px_#a855f7] transition-shadow duration-300"
     >
-      <div className="flex items-start justify-between">
-        <div>
-          <h3 className="text-xl font-bold text-primary mb-1">{title}</h3>
-          <h4 className="text-lg text-accent mb-2">{organization}</h4>
-          
-          <div className="flex items-center text-text-muted mb-4">
-            <Calendar size={16} className="mr-2" />
-            <span>{date}</span>
-          </div>
-        </div>
-        
-        <Award size={24} className="text-accent" />
-      </div>
-      
-      {description && description.length > 0 && (
-        <ul className="space-y-2 mb-4">
-          {description.map((item, i) => (
-            <li key={i} className="text-text-muted">
-              • {item}
-            </li>
-          ))}
-        </ul>
-      )}
-      
-      {url && (
-        <a
-          href={url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center text-accent hover:underline"
-        >
-          <span className="mr-1">View Certificate</span>
-          <ExternalLink size={16} />
-        </a>
-      )}
+      <h4 className="text-xl font-bold text-primary mb-2">{title}</h4>
+      <p className="text-text font-medium mb-1">{organization}</p>
+      <p className="text-text-muted text-sm mb-4">{date}</p>
+      <ul className="list-disc pl-5 space-y-2 text-text-muted text-sm mb-4">
+        {description.map((point, idx) => (
+          <li key={idx}>{point}</li>
+        ))}
+      </ul>
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-accent hover:underline text-sm font-medium"
+      >
+        View Certificate →
+      </a>
     </motion.div>
   );
 };

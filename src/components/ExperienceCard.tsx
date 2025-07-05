@@ -1,49 +1,26 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { Calendar } from 'lucide-react';
 
-interface ExperienceCardProps {
-  title: string;
-  company: string;
-  period: string;
-  description: string[];
-  index: number;
-}
-
-const ExperienceCard: React.FC<ExperienceCardProps> = ({
-  title,
-  company,
-  period,
-  description,
-  index,
-}) => {
+const ExperienceCard = ({ title, company, period, description, index }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
+      whileHover={{
+        y: -5,
+        transition: { type: 'spring', stiffness: 200, damping: 12 }
+      }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       viewport={{ once: true }}
-      className="relative pl-8 pb-12 border-l-2 border-border last:border-l-transparent last:pb-0"
+      className="bg-background-lighter border border-border rounded-xl p-6 shadow-lg hover:shadow-[0_0_18px_#a855f7] transition-shadow duration-300"
     >
-      <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-accent"></div>
-      
-      <div className="bg-background-lighter border border-border rounded-xl p-6 shadow-lg hover:shadow-accent/5 transition-all duration-300">
-        <h3 className="text-xl font-bold text-primary mb-1">{title}</h3>
-        <h4 className="text-lg text-accent mb-2">{company}</h4>
-        
-        <div className="flex items-center text-text-muted mb-4">
-          <Calendar size={16} className="mr-2" />
-          <span>{period}</span>
-        </div>
-        
-        <ul className="space-y-2">
-          {description.map((item, i) => (
-            <li key={i} className="text-text-muted">
-              • {item}
-            </li>
-          ))}
-        </ul>
-      </div>
+      <h4 className="text-xl font-bold text-primary mb-2">{title}</h4>
+      <p className="text-text font-medium mb-1">{company}</p>
+      <p className="text-text-muted text-sm mb-4">{period}</p>
+      <ul className="list-disc pl-5 space-y-2 text-text-muted text-sm">
+        {description.map((point, idx) => (
+          <li key={idx}>{point}</li>
+        ))}
+      </ul>
     </motion.div>
   );
 };

@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
           >
             <h3 className="text-xl font-semibold text-primary mb-4">Sandipto Das</h3>
             <p className="text-text-muted mb-4">
-              Detail-oriented Data Analyst with expertise in data visualization, SQL, Python, and MS Excel.
+              I'm always open to collaborating on interesting projects, sharing insights about data analytics, or just having a chat about the latest trends in data science.
             </p>
             <div className="flex items-center text-text-muted">
               <MapPin size={16} className="mr-2" />

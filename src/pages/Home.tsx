@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import SectionHeading from '../components/SectionHeading';
 import SkillBadge from '../components/SkillBadge';
 import ProjectCard from '../components/ProjectCard';
+import profilePic from '../assets/profile.jpg';
+import TypingText from '../components/TypingText';
 
 const Home: React.FC = () => {
   const skills = [
@@ -47,10 +49,11 @@ const Home: React.FC = () => {
               Data Analyst
             </h2>
             
-            <p className="text-text-muted text-lg mb-8 max-w-xl">
-              Detail-oriented Data Analyst with hands-on experience in data visualization, SQL, Python, and MS Excel. 
-              Transforming raw data into actionable insights.
-            </p>
+            <TypingText
+              text="Detail-oriented Data Analyst with hands-on experience in data visualization, SQL, Python, and MS Excel. Transforming raw data into actionable insights."
+              speed={75}
+              className="text-text-muted text-lg mb-8 max-w-xl"
+            />
             
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">
@@ -119,9 +122,15 @@ const Home: React.FC = () => {
             <div className="w-full h-[500px] rounded-2xl bg-gradient-to-br from-accent/20 to-primary/5 p-1">
               <div className="w-full h-full rounded-xl bg-background-lighter border border-border flex items-center justify-center">
                 <div className="text-center p-8">
-                  <div className="w-48 h-48 rounded-full bg-background-darker mx-auto mb-6 flex items-center justify-center text-5xl font-bold text-accent">
-                    SD
-                  </div>
+                  <motion.img
+                    src={profilePic}
+                    alt="Profile"
+                    initial={{ y: 0 }}
+                    animate={{ y: [0, -50, 0] }}
+                    transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
+                    whileHover={{ scale: 1.05 }}
+                    className="w-48 h-48 rounded-full mx-auto mb-6 object-cover object-top translate-y-1 shadow-[0_0_20px_#a855f7] transition-transform duration-300"
+                  />
                   <h3 className="text-2xl font-bold text-primary mb-2">Sandipto Das</h3>
                   <p className="text-text-muted">Data Analyst</p>
                 </div>

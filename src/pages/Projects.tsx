@@ -20,15 +20,10 @@ const Projects: React.FC = () => {
       title: 'Portfolio Website',
       description: 'Designed and developed a responsive personal portfolio website to showcase my skills, projects, and experience. Implemented modern UI/UX principles with smooth animations and dark theme.',
       techStack: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Responsive Design'],
-      githubUrl: 'https://github.com/S4Ndipto/portfolio',
-      liveUrl: '#',
+      githubUrl: 'https://github.com/S4Ndipto/PersonalPortfolio_2.0',
+      liveUrl: 'https://sandiptoportfolio.netlify.app/',
     },
-    {
-      title: 'Data Visualization Dashboard',
-      description: 'Created an interactive dashboard for visualizing and analyzing sales data. Implemented filters, sorting, and various chart types to provide comprehensive insights.',
-      techStack: ['Python', 'Pandas', 'Matplotlib', 'Seaborn', 'Jupyter Notebook'],
-      githubUrl: 'https://github.com/S4Ndipto/data-visualization-dashboard',
-    }
+    
   ];
 
   return (

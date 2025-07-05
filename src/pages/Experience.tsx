@@ -26,7 +26,7 @@ const Experience: React.FC = () => {
         'Created a data dashboard using Tableau',
         'Used Excel to classify data and draw business conclusions'
       ],
-      url: '#'
+      url: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/9PBTqmSxAf6zZTseP/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_Sr5Gu3rvcYdFFrTns_1746859437911_completion_certificate.pdf'
     },
     {
       title: 'Web Development Certification',
@@ -35,7 +35,7 @@ const Experience: React.FC = () => {
       description: [
         'Built an e-commerce website using HTML and CSS'
       ],
-      url: '#'
+      url: 'https://cert.diceid.com/cid/y9SSwXFlvl?verify=true'
     }
   ];
 

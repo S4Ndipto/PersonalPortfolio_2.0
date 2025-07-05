@@ -3,35 +3,7 @@ import { motion } from 'framer-motion';
 import { Send } from 'lucide-react';
 
 const ContactForm: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
-  
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      
-      // Reset status after 5 seconds
-      setTimeout(() => setSubmitStatus('idle'), 5000);
-    }, 1500);
-  };
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   return (
     <motion.div
@@ -41,7 +13,7 @@ const ContactForm: React.FC = () => {
       viewport={{ once: true }}
       className="bg-background-lighter border border-border rounded-xl p-6 md:p-8 shadow-xl"
     >
-      {submitStatus === 'success' ? (
+      {isSubmitted ? (
         <div className="text-center py-8">
           <motion.div
             initial={{ scale: 0 }}
@@ -57,7 +29,17 @@ const ContactForm: React.FC = () => {
           </p>
         </div>
       ) : (
-        <form onSubmit={handleSubmit}>
+        <form
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          onSubmit={() => setIsSubmitted(true)}
+        >
+          {/* Required for Netlify forms */}
+          <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="bot-field" />
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <div>
               <label htmlFor="name" className="block text-text-muted mb-2 text-sm">
@@ -67,14 +49,12 @@ const ContactForm: React.FC = () => {
                 type="text"
                 id="name"
                 name="name"
-                value={formData.name}
-                onChange={handleChange}
                 required
                 className="w-full bg-background border border-border rounded-lg px-4 py-3 text-text focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors"
                 placeholder="Your name"
               />
             </div>
-            
+
             <div>
               <label htmlFor="email" className="block text-text-muted mb-2 text-sm">
                 Email
@@ -83,15 +63,13 @@ const ContactForm: React.FC = () => {
                 type="email"
                 id="email"
                 name="email"
-                value={formData.email}
-                onChange={handleChange}
                 required
                 className="w-full bg-background border border-border rounded-lg px-4 py-3 text-text focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors"
                 placeholder="Your email"
               />
             </div>
           </div>
-          
+
           <div className="mb-6">
             <label htmlFor="subject" className="block text-text-muted mb-2 text-sm">
               Subject
@@ -100,14 +78,12 @@ const ContactForm: React.FC = () => {
               type="text"
               id="subject"
               name="subject"
-              value={formData.subject}
-              onChange={handleChange}
               required
               className="w-full bg-background border border-border rounded-lg px-4 py-3 text-text focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors"
               placeholder="Subject of your message"
             />
           </div>
-          
+
           <div className="mb-6">
             <label htmlFor="message" className="block text-text-muted mb-2 text-sm">
               Message
@@ -115,34 +91,19 @@ const ContactForm: React.FC = () => {
             <textarea
               id="message"
               name="message"
-              value={formData.message}
-              onChange={handleChange}
               required
               rows={6}
               className="w-full bg-background border border-border rounded-lg px-4 py-3 text-text focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-colors resize-none"
               placeholder="Your message"
             ></textarea>
           </div>
-          
+
           <button
             type="submit"
-            disabled={isSubmitting}
-            className="bg-accent hover:bg-accent/90 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed"
+            className="bg-accent hover:bg-accent/90 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center"
           >
-            {isSubmitting ? (
-              <>
-                <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-                Sending...
-              </>
-            ) : (
-              <>
-                Send Message
-                <Send size={18} className="ml-2" />
-              </>
-            )}
+            Send Message
+            <Send size={18} className="ml-2" />
           </button>
         </form>
       )}
