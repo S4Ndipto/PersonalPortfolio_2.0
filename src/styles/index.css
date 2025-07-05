@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-background: 15 15 20;
+    --color-background-lighter: 25 25 35;
+    --color-background-darker: 10 10 15;
+    --color-text: 230 230 240;
+    --color-text-muted: 180 180 195;
+    --color-primary: 240 240 250;
+    --color-accent: 130 90 255;
+    --color-border: 40 40 60;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-text font-sans;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    @apply bg-accent/30 text-text;
+  }
+
+  /* Custom cursor */
+  .custom-cursor {
+    @apply fixed w-8 h-8 rounded-full border border-accent pointer-events-none z-50 mix-blend-difference;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease;
+  }
+
+  .cursor-dot {
+    @apply fixed w-2 h-2 rounded-full bg-accent pointer-events-none z-50;
+    transform: translate(-50%, -50%);
+    transition: transform 0.05s ease;
+  }
+
+  a:hover ~ .custom-cursor,
+  button:hover ~ .custom-cursor {
+    @apply w-12 h-12;
+  }
+}
+
+@layer components {
+  /* Animated gradient background */
+  .gradient-bg {
+    background: linear-gradient(45deg, rgba(130, 90, 255, 0.1), rgba(80, 70, 200, 0.1), rgba(130, 90, 255, 0.1));
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+}
