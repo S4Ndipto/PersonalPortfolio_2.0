@@ -1,6 +1,14 @@
 import { motion } from 'framer-motion';
 
-const ExperienceCard = ({ title, company, period, description, index }) => {
+interface ExperienceCardProps {
+  title: string;
+  company: string;
+  period: string;
+  description: string[];
+  index: number;
+}
+
+const ExperienceCard = ({ title, company, period, description, index }: ExperienceCardProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}

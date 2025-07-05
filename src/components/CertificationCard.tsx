@@ -1,6 +1,15 @@
 import { motion } from 'framer-motion';
 
-const CertificationCard = ({ title, organization, date, description, url, index }) => {
+interface CertificationCardProps {
+  title: string;
+  organization: string;
+  date: string;
+  description: string[];
+  url: string;
+  index: number;
+}
+
+const CertificationCard = ({ title, organization, date, description, url, index }: CertificationCardProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
