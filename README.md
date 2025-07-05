@@ -1,6 +1,6 @@
 # Sandipto Das - Portfolio Website
 
-A modern, responsive portfolio website for Sandipto Das, a Data Analyst. Built with React, TypeScript, and Tailwind CSS.
+A modern, responsive portfolio website. Built with React, TypeScript, and Tailwind CSS.
 
 ## Features
 
