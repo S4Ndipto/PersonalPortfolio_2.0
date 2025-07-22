@@ -7,6 +7,8 @@ import SkillBadge from '../components/SkillBadge';
 import ProjectCard from '../components/ProjectCard';
 import profilePic from '../assets/profile.jpg';
 import TypingText from '../components/TypingText';
+import resumePDF from '../assets/resume.pdf';
+
 
 const Home: React.FC = () => {
   const skills = [
@@ -68,7 +70,7 @@ const Home: React.FC = () => {
               </Link>
               
               <motion.a
-                href="/resume.pdf"
+                href={resumePDF}
                 download
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
