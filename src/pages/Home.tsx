@@ -68,7 +68,7 @@ const Home: React.FC = () => {
               </Link>
               
               <motion.a
-                href="C:\Users\sandi\OneDrive\Desktop\PersonalPortfolio_2.0\src\assets\resume.pdf"
+                href="/resume.pdf"
                 download
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
